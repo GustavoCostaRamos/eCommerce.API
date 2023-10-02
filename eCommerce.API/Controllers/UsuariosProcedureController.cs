@@ -7,13 +7,13 @@ namespace eCommerce.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsuariosController : ControllerBase
+    public class UsuariosProcedureController : ControllerBase
     {
         private IUsuarioRepository _repository;
 
-        public UsuariosController()
+        public UsuariosProcedureController()
         {
-            _repository = new UsuarioRepository();
+            _repository = new UsuarioProcedureRepository();
         }
 
         [HttpGet]
@@ -42,15 +42,15 @@ namespace eCommerce.API.Controllers
                 _repository.Insert(usuario);
                 return Ok(usuario);
             }
-            catch (Exception e) 
+            catch (Exception e)
             {
                 return StatusCode(500, e.Message);
             }
-           
+
         }
 
         [HttpPut]
-        public IActionResult Update ([FromBody]Usuario usuario)
+        public IActionResult Update([FromBody] Usuario usuario)
         {
             try
             {
@@ -71,3 +71,4 @@ namespace eCommerce.API.Controllers
         }
     }
 }
+
